@@ -1,6 +1,6 @@
 # Shiny Dashboard for Industry Cluster Analysis
 
-This application is currently under active development. Changes and modifications will be added over time.
+*This application is currently under active development. Changes and modifications will be added over time.*
 
 ## About
 
@@ -17,8 +17,16 @@ This web app is a project of the [Taiwan Institute for Strategy and Competitiven
 ### Software Dependencies
 
 In order to run this web app, you need to have the [R language](https://www.r-project.org/), [RStudio IDE](https://www.rstudio.com/), and the following R packages installed:
+* ggplot2
+* Leaflet
 * Shiny
-* [More packages]
+* [more packages]
+
+Install R packages using function `install.packages()`. For example
+
+```r
+install.packages('shiny')
+```
 
 ###	Data Formatting
 

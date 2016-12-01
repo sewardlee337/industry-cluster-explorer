@@ -1,6 +1,3 @@
-data2006 <- read.csv('cluster2006.csv', stringsAsFactors=FALSE)
-
-data2011 <- read.csv('cluster2011.csv', stringsAsFactors=FALSE)
 
 
 ##   CAGR calculation

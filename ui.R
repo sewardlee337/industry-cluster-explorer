@@ -7,11 +7,9 @@ shinyUI(fluidPage(
      sidebarLayout(
           
           sidebarPanel(
-               
                selectInput("selectRegion", label = h4("Select region"),
-                           choices = list("Choice 1"= 1, "Choice 2" = 2,
+                           choices = list("Choice 1" = 1, "Choice 2" = 2,
                                           "Choice 3" = 3))
-               
           ),
           mainPanel("Main panel")
           
