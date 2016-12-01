@@ -17,18 +17,24 @@ This web app is a project of the [Taiwan Institute for Strategy and Competitiven
 ### Software Dependencies
 
 In order to run this web app, you need to have the [R language](https://www.r-project.org/), [RStudio IDE](https://www.rstudio.com/), and the following R packages installed:
-* ggplot2
-* Leaflet
-* Shiny
-* [more packages]
+* [dplyr](https://CRAN.R-project.org/package=dplyr)
+* [ggplot2](https://CRAN.R-project.org/package=ggplot2)
+* [Leaflet](https://CRAN.R-project.org/package=leaflet)
+* [Shiny](https://CRAN.R-project.org/package=shiny)
 
-Install R packages using function `install.packages()`. For example
+Install R packages using function `install.packages()`. For example:
 
 ```r
 install.packages('shiny')
 ```
 
-###	Data Formatting
+###	Data Preparation
+
+#### Industry Cluster Data
+
+In order for datasets to be visualized by the dashboard to be processed correctly, it must be structured in [tidy format](http://vita.had.co.nz/papers/tidy-data.pdf) and stored in CSV file format.
+
+#### Geospatial Data
 
 ## Feedback and Collaboration
 

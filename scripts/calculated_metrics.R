@@ -1,13 +1,13 @@
-
+library(dplyr)
 
 ##   CAGR calculation
 
-cagr <- function(begin, end, metric, years){
+cagr <- function(begin_data, end_data, metric, years){
      
      ##   Keep columns needed for calculation
      
-     begin_data <- begin[, c('cluster', 'region', metric)]
-     end_data <- end[, c('cluster', 'region', metric)]
+     begin_data <- begin_data[, c('cluster', 'region', metric)]
+     end_data <- end_data[, c('cluster', 'region', metric)]
      
      ##   Inner-join datasets for beginning and end year
      
@@ -26,4 +26,13 @@ cagr <- function(begin, end, metric, years){
      cagr_table <- combined_table[, c('cluster', 'region', 'cagr')]
      
      return(cagr_table)
+}
+
+
+##   Metric share calculation
+
+share <- function(data, metric) {
+     
+     total_table <- filter(data, region == "Total")
+     
 }
