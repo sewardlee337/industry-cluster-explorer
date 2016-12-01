@@ -20,5 +20,7 @@ In order to run this web app, you need to have the [R language](https://www.r-pr
 * Shiny
 * [More packages]
 
+###	Data Formatting
+
 ## Feedback and Collaboration
 
