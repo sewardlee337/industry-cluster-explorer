@@ -1,8 +1,8 @@
 library(dplyr)
 
-##   CAGR calculation
+##   CAGR Calculation
 
-cagr <- function(begin_data, end_data, metric, years){
+CAGR <- function(begin_data, end_data, metric, years){
      
      ##   Keep columns needed for calculation
      
@@ -28,11 +28,29 @@ cagr <- function(begin_data, end_data, metric, years){
      return(cagr_table)
 }
 
+##   Region Share Calculation
 
-##   Metric share calculation
-
-share <- function(data, metric) {
+RegionShare <- function(data, metric) {
      
-     total_table <- filter(data, region == "Total")
+     ##   Keep relevant columns in dataset
+     initial_table <- data[,c("cluster", "region", metric)]
      
+     ##   Create dataframe with summed metric values by region
+     sum_param <- paste0("sum(", metric,")")
+     
+     total_table <- group_by_(data, "region") %>%
+          summarise_(sum_metric = sum_param) %>%
+          as.data.frame()
+     
+     ##   Join regional total column to dataset
+     combined_table <- inner_join(initial_table, total_table, by = "region")
+     
+     ##   Calculate regional shares
+     combined_table$region_share <- combined_table[,metric] / combined_table$sum_metric 
+     
+     share_table <- combined_table[, c("cluster", "region", "region_share")]
+     
+     return(share_table)
 }
+
+##   Location Quotient Calculation
