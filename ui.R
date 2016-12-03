@@ -1,4 +1,4 @@
-library(shiny)
+# ui.R
 
 shinyUI(fluidPage(
      
@@ -7,9 +7,13 @@ shinyUI(fluidPage(
      sidebarLayout(
           
           sidebarPanel(
-               selectInput("selectRegion", label = h4("Select region"),
-                           choices = list("Choice 1" = 1, "Choice 2" = 2,
-                                          "Choice 3" = 3))
+               
+               ##   Help text
+               helpText("Derp derp derp derp derp derp derp"),
+               
+               ##   Region dropdown menu
+               uiOutput("region")
+               
           ),
           mainPanel("Main panel")
           

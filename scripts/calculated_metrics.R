@@ -5,12 +5,10 @@ library(dplyr)
 CAGR <- function(begin_data, end_data, metric, years){
      
      ##   Keep columns needed for calculation
-     
      begin_data <- begin_data[, c('cluster', 'region', metric)]
      end_data <- end_data[, c('cluster', 'region', metric)]
      
      ##   Inner-join datasets for beginning and end year
-     
      combined_table <- inner_join(begin_data, end_data, by = c('cluster', 'region'))
      
      names(combined_table) <- c('cluster', 'region', 'begin_metric', 'end_metric')
@@ -36,7 +34,7 @@ RegionShare <- function(data, metric) {
      initial_table <- data[,c("cluster", "region", metric)]
      
      ##   Create dataframe with summed metric values by region
-     sum_param <- paste0("sum(", metric,")")
+     sum_param <- paste0("sum(", metric,")")           ##   NOTE: This is necessary to deal with NSE in summarise_() function 
      
      total_table <- group_by_(data, "region") %>%
           summarise_(sum_metric = sum_param) %>%
