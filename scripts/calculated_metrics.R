@@ -58,7 +58,7 @@ LQ <- function(data, metric){
      
      ##   Create dataframe with summed metric values by region
      sum_param <- paste0("sum(", metric,")")           ##   NOTE: This is necessary to deal with NSE in summarise_() function. 
-                                                       ##   This stupid parameter will be used in construction of both
+                                                       ##   This parameter will be used in construction of both
      region_table <- group_by_(data, "region") %>%     ##   tables to be inner-joined with intial table.
           summarise_(sum_by_region = sum_param) %>%
           as.data.frame()
