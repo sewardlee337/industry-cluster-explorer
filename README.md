@@ -28,6 +28,21 @@ Install R packages using function `install.packages()`. For example:
 install.packages('shiny')
 ```
 
+### Folder Structure
+
+Make sure that the file structure on your machine matches the following:
+
+```
+├── bizcluster-dashboard
+|   ├── scripts
+|   | ├── calculated_metrics.R
+|   ├── data
+|   ├── server.R
+|   ├── ui.R
+└──
+```
+**Note that the folder `data` does not exist on the Github repository.** Prior to running the application, create the folder `data` and populate it with input data to be processed and visualized by the dashboard. 
+
 ###	Data Preparation
 
 #### Industry Cluster Data
