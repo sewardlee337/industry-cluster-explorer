@@ -54,3 +54,4 @@ In order for datasets to be visualized by the dashboard to be processed correctl
 
 ## Feedback and Collaboration
 
+Please contact Seward Lee at sewardlee337@gmail.com for collaboration opportunities.
