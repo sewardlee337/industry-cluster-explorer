@@ -21,7 +21,7 @@ In order to run this web app, you need to have the [R language](https://www.r-pr
 * [dplyr](https://CRAN.R-project.org/package=dplyr)
 * [ggplot2](https://CRAN.R-project.org/package=ggplot2)
 * [Leaflet](https://CRAN.R-project.org/package=leaflet)
-* [Shiny](https://CRAN.R-project.org/package=shiny)
+* [shinydashboard](https://CRAN.R-project.org/package=shinydashboard)
 
 Install R packages using function `install.packages()`. For example:
 
