@@ -7,7 +7,7 @@
 This Shiny web app provides a dashboard for economic researchers to perform industry cluster analysis and derive insights regarding regional economic productivity and competitiveness. 
 
 For more information regarding the theory of industry clusters, see:
-* [Porter, Michael E. "Clusters and the New Economics of Competition." *Harvard Business Review* 76, no. 6 (November???December 1998): 77???90.](http://www.clustermapping.us/sites/default/files/files/resource/Clusters_and_the_New_Economics_of_Competition.pdf)
+* [Porter, Michael E. "Clusters and the New Economics of Competition." *Harvard Business Review* 76, no. 6 (November–December 1998): 77–90.](http://www.clustermapping.us/sites/default/files/files/resource/Clusters_and_the_New_Economics_of_Competition.pdf)
 * [U.S. Cluster Mapping website](http://www.clustermapping.us/content/clusters-101)
 * [HBS Institute for Strategy and Competitveness website](http://www.isc.hbs.edu/competitiveness-economic-development/frameworks-and-key-concepts/Pages/clusters.aspx)
 
@@ -34,13 +34,13 @@ install.packages('shiny')
 Make sure that the file structure on your machine matches the following:
 
 ```
-????????? bizcluster-dashboard
-|   ????????? scripts
-|   | ????????? calculated_metrics.R
-|   ????????? data
-|   ????????? server.R
-|   ????????? ui.R
-?????????
+├── bizcluster-dashboard
+|   ├── scripts
+|   | ├── calculated_metrics.R
+|   ├── data
+|   ├── server.R
+|   ├── ui.R
+└──
 ```
 **Note that the folder `data` does not exist on the Github repository.** Prior to running the application, create the folder `data` and populate it with input data to be processed and visualized by the dashboard. 
 
