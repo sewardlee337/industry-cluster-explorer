@@ -1,6 +1,8 @@
 # ui.R
 
 library(shinydashboard)
+library(ggvis)
+library(googleVis)
 
 ##   Dashboard title setup
 header <- dashboardHeader(title = "Taiwan Industry Cluster Explorer", titleWidth = 350)
@@ -17,12 +19,17 @@ body <- dashboardBody(
                width = 3,
                
                #   Help text
-               helpText("Use menus below to select type of analysis and region of interest"),
+               helpText("Use menus below to select analysis type and filter data."),
                
                ##   Analysis type menu
-               selectInput('analysisType', "Analysis type",
+               selectInput('analysisType', "Analysis",
                            c("Employment Growth Composition", "Employment Share & Specialization",
                              "Employment Growth & Specialization", "Revenue Growth & Specialization")),
+               
+               ##   Cluster type menu
+               selectInput('clusterType', "Cluster type",
+                           c("All", "Traded only",
+                             "Local only")),
 
                ##   Region dropdown menu
                uiOutput("region")
@@ -33,10 +40,12 @@ body <- dashboardBody(
           ##   Main panel
           
           box(
-               title = 
-               textOutput("analysis_title"),
+               width = 6,
+               title = textOutput("analysis_title"),
+
+               helpText("Hover over a bubble for tooltip."),
                
-               ggvisOutput("bubble_chart")
+               htmlOutput("bubble")
           )
           
           
