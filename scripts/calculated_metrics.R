@@ -16,7 +16,6 @@ CAGR <- function(begin_data, end_data, metric, years){
      ##   Conditional statement to construct CAGR column
      ##   If metric for beginning year == 0, CAGR is 0
      ##   Else apply CAGR formula
-     
      combined_table$cagr <- ifelse(combined_table$begin_metric == 0, 0, 
           (combined_table$end_metric/combined_table$begin_metric) ^(1/years) - 1
      )
@@ -82,5 +81,4 @@ LQ <- function(data, metric){
      
      lq_table <- combined_table[, c("cluster", "region", "location_quotient")] %>%
           return()
-     
 }

@@ -1,4 +1,6 @@
-library(shiny)
+# server.R
+
+library(shinydashboard)
 source('scripts/calculated_metrics.R')    ##   Import metric calculations
 
 ##   Load beginning and end datasets
@@ -15,7 +17,7 @@ shinyServer(function(input, output) {
      
      output$region <- renderUI({
           unique_regions <- choose_region()
-          selectInput("select_region", "Select region of interest", choices = unique_regions, 
+          selectInput("select_region", "Region", choices = unique_regions, 
                       unique_regions[1])
      })
      
