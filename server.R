@@ -25,14 +25,12 @@ shinyServer(function(input, output) {
                       unique_regions[1])
      })
      
-
      ##   Create bubble plot title   
      output$region_title <- renderText({input$select_region})
      
      output$analysis_title <- renderText({input$analysisType})
      
      selected_region <- reactive({input$select_region})
-     
      
      ##   Create data frames based on different types of analysis
      
@@ -65,7 +63,6 @@ shinyServer(function(input, output) {
                xvar <- LQ(end_dataset, "revenue")
                yvar <- CAGR(begin_dataset, end_dataset, "revenue", 5)
                zvar <- RegionShare(end_dataset, "revenue")
-               
           }
           
           new_table <- inner_join(xvar, yvar, by = c('cluster', 'region')) %>%
@@ -78,7 +75,6 @@ shinyServer(function(input, output) {
                inner_join(cluster_types, by = 'cluster')
           
           return(new_table)
-     
      })
      
      ##   Axis labels
@@ -106,7 +102,6 @@ shinyServer(function(input, output) {
           }
          
           return(new_labels)
-          
      })
      
      output$bubble <- renderGvis({
@@ -119,15 +114,4 @@ shinyServer(function(input, output) {
                                          width="530px", height="450px",
                                          bubble="{textStyle:{color: 'none'}}"))
      })
-     
-     ##   Render bubble
-     # reactive({
-     #      ggvis(build_visdf(), x = ~xvar, y = ~yvar) %>%
-     #           layer_points() %>%
-     #           add_axis("x", title = axis_labels()[1]) %>%
-     #           add_axis("y", title = axis_labels()[2]) %>%
-     #           set_options(width = 470, height = 400)
-     # }) %>%
-     #      bind_shiny("bubble_chart")
-          
 })

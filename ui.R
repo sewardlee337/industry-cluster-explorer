@@ -7,7 +7,6 @@ library(googleVis)
 ##   Dashboard title setup
 header <- dashboardHeader(title = "Taiwan Industry Cluster Explorer", titleWidth = 350)
 
-
 ##   Dashboard body setup
 body <- dashboardBody(
      
@@ -17,8 +16,6 @@ body <- dashboardBody(
           ##   Side panel
           box(
                width = 3,
-               
-               #   Help text
                helpText("Use menus below to select analysis type and filter data."),
                
                ##   Analysis type menu
@@ -33,22 +30,16 @@ body <- dashboardBody(
 
                ##   Region dropdown menu
                uiOutput("region")
-
-
           ),
           
           ##   Main panel
-          
           box(
                width = 6,
                title = textOutput("analysis_title"),
 
                helpText("Hover over a bubble for tooltip."),
-               
                htmlOutput("bubble")
           )
-          
-          
      ),
      
      ##   Bottom row
@@ -59,19 +50,13 @@ body <- dashboardBody(
               width = 12,
               includeMarkdown("markdown/employ-share-spec.Rmd")
           )
-          
      )
-     
-     
 )
 
-
 ##   Render entire dashboard
-
 dashboardPage(
      skin = "purple",
      header,
      dashboardSidebar(disable = TRUE),
      body
-
 )
