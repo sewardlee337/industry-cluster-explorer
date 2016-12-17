@@ -26,7 +26,7 @@ In order to run this web app, you need to have the [R language](https://www.r-pr
 Install R packages using function `install.packages()`. For example:
 
 ```r
-install.packages('shiny')
+install.packages('shinydashboard')
 ```
 
 ### Folder Structure
