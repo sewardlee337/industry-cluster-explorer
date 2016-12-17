@@ -19,7 +19,7 @@ This web app is a project of the [Taiwan Institute for Strategy and Competitiven
 
 In order to run this web app, you need to have the [R language](https://www.r-project.org/), [RStudio IDE](https://www.rstudio.com/), and the following R packages installed:
 * [dplyr](https://CRAN.R-project.org/package=dplyr)
-* [ggvis](https://CRAN.R-project.org/package=ggvis)
+* [googleVis](https://CRAN.R-project.org/package=googleVis)
 * [Leaflet](https://CRAN.R-project.org/package=leaflet)
 * [shinydashboard](https://CRAN.R-project.org/package=shinydashboard)
 
