@@ -18,19 +18,26 @@ body <- dashboardBody(
                
                #   Help text
                helpText("Use menus below to select type of analysis and region of interest"),
-
-               ##   Region dropdown menu
-               uiOutput("region"),
-
+               
                ##   Analysis type menu
                selectInput('analysisType', "Analysis type",
-                    c("Employment Growth Composition", "Employment Share & Specialization",
-                         "Employment Growth & Specialization", "Revenue Growth & Specialization"))
+                           c("Employment Growth Composition", "Employment Share & Specialization",
+                             "Employment Growth & Specialization", "Revenue Growth & Specialization")),
+
+               ##   Region dropdown menu
+               uiOutput("region")
+
+
           ),
           
           ##   Main panel
           
-          box("Main Panel")
+          box(
+               title = 
+               textOutput("analysis_title"),
+               
+               ggvisOutput("bubble_chart")
+          )
           
           
      ),
