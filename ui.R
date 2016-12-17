@@ -3,29 +3,8 @@
 library(shinydashboard)
 
 ##   Dashboard title setup
-header <- dashboardHeader(title = "Taiwan Industry Cluster Explorer", titleWidth = 450)
-     
-     
-     # titlePanel("Taiwan Industry Cluster Dashboard"),
-     # 
-     # sidebarLayout(
-     #      
-     #      sidebarPanel(
-     #           
-     #           ##   Help text
-     #           helpText("Derp derp derp derp derp derp derp"),
-     #           
-     #           ##   Region dropdown menu
-     #           uiOutput("region"),
-     #           
-     #           ##   Analysis type menu
-     #           selectInput('analysisType', "Analysis type", 
-     #                       c("Employment Growth Composition", "Employment Share & Specialization", 
-     #                         "Employment Growth & Specialization", "Revenue Growth & Specialization"))
-     #           
-     #      ),
-     #      mainPanel("Main panel")
-     # )
+header <- dashboardHeader(title = "Taiwan Industry Cluster Explorer", titleWidth = 350)
+
 
 ##   Dashboard body setup
 body <- dashboardBody(
@@ -59,11 +38,13 @@ body <- dashboardBody(
      ##   Bottom row
      fluidRow(
           
-          box()
+          ##   Serve markdown documents here 
+          box(
+              width = 12,
+              includeMarkdown("markdown/employ-share-spec.Rmd")
+          )
           
      )
-     
-     
      
      
 )

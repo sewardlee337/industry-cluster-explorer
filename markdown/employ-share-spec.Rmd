@@ -1,0 +1,17 @@
+#### Employment Share and Specialization
+
+This analysis provides insight into how unique a cluster is within a particular region, and how important it is to the regional economy.
+
+**X-axis:** Location Quotient (employment)
+
+**Y-axis:** Employment Share
+
+**Circle area:** Employment Size
+
+| Employment Share 	| LQ < 1                                    	| LQ >= 1                                         	| LQ ??? 2                                                	|
+|------------------	|-------------------------------------------	|------------------------------------------------	|-------------------------------------------------------	|
+| Share 5%         	| No signficance                            	| Specialized cluster, but small regional impact 	| Highly specialized cluster with small regional impact 	|
+| 5% ??? Share < 10% 	| Some regional employment impact           	| Specialized cluster with some regional impact  	| Highly specialized cluster with some regional impact  	|
+| Share ??? 10%      	| High regional impact, but not specialized 	| Specialized cluster with high regional impact  	| Highly specialized cluster with high regional impact  	|
+
+
