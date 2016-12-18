@@ -36,7 +36,6 @@ body <- dashboardBody(
           box(
                width = 6,
                title = textOutput("analysis_title"),
-
                helpText("Hover over a bubble for tooltip."),
                htmlOutput("bubble")
           )

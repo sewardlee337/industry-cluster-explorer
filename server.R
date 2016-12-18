@@ -7,9 +7,7 @@ source('scripts/calculated_metrics.R')    ##   Import metric calculations
 
 ##   Load beginning and end datasets
 begin_dataset <- read.csv('data/cluster2006.csv', stringsAsFactors=FALSE)
-
 end_dataset <- read.csv('data/cluster2011.csv', stringsAsFactors=FALSE)
-
 cluster_types <- read.csv('data/clustertypes.csv', stringsAsFactors=FALSE)
 
 shinyServer(function(input, output) {
@@ -32,34 +30,32 @@ shinyServer(function(input, output) {
      
      selected_region <- reactive({input$select_region})
      
+     selected_type <- reactive({input$clusterType})
+     
      ##   Create data frames based on different types of analysis
      
      build_visdf <- reactive({
           
           ##   Build dataframe for Employment Growth Composition
           if(input$analysisType == "Employment Growth Composition"){
-               
                xvar <- RegionShare(end_dataset, "employee_count")
                yvar <- CAGR(begin_dataset, end_dataset, "employee_count", 5)
                zvar <- end_dataset[,c('cluster', 'region', "employee_count")]
           
           ##   Build dataframe for Employment Share & Specialization
           } else if(input$analysisType == "Employment Share & Specialization"){
-               
                xvar <- LQ(end_dataset, "employee_count")
                yvar <- RegionShare(end_dataset, "employee_count")
                zvar <- end_dataset[,c('cluster', 'region', "employee_count")]
                
           ##   Build dataframe for Employment Growth & Specialization
           } else if(input$analysisType == "Employment Growth & Specialization"){
-               
                xvar <- LQ(end_dataset, "employee_count")
                yvar <- CAGR(begin_dataset, end_dataset, "employee_count", 5)
                zvar <- RegionShare(end_dataset, "employee_count")
                
           ##   Build dataframe for Revenue Growth & Specialization
           } else {
-               
                xvar <- LQ(end_dataset, "revenue")
                yvar <- CAGR(begin_dataset, end_dataset, "revenue", 5)
                zvar <- RegionShare(end_dataset, "revenue")
@@ -73,6 +69,12 @@ shinyServer(function(input, output) {
           ##   Filter by region
           new_table <- new_table[which(new_table$region == selected_region() ),] %>%
                inner_join(cluster_types, by = 'cluster')
+          
+          if(selected_type() == "Traded only"){
+               new_table <- new_table[which(new_table$type == "traded" ),]
+          } else if(selected_type() == "Local only") {
+               new_table <- new_table[which(new_table$type == "local" ),]
+          }
           
           return(new_table)
      })
