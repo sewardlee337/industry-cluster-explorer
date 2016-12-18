@@ -1,0 +1,7 @@
+**Employment Growth and Specialization** provides insight into how unique a cluster is within a given region, and whether a cluster's competitiveness is growing, stagnating, or declining.
+
+**X-axis:** Location quotient (Employment)
+
+**Y-axis:** Employment growth rate (CAGR)
+
+**Circle size:** Employment share

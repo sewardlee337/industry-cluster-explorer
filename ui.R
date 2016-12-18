@@ -29,7 +29,13 @@ body <- dashboardBody(
                              "Local only")),
 
                ##   Region dropdown menu
-               uiOutput("region")
+               uiOutput("region"),
+               
+               ##   Markdown
+               br(),
+               helpText(includeMarkdown("markdown/employ-share-spec.Rmd")),
+               br(),
+               br()
           ),
           
           ##   Main panel
@@ -38,16 +44,6 @@ body <- dashboardBody(
                title = textOutput("analysis_title"),
                helpText("Hover over a bubble for tooltip."),
                htmlOutput("bubble")
-          )
-     ),
-     
-     ##   Bottom row
-     fluidRow(
-          
-          ##   Serve markdown documents here 
-          box(
-              width = 12,
-              includeMarkdown("markdown/employ-share-spec.Rmd")
           )
      )
 )

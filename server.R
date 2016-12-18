@@ -85,35 +85,43 @@ shinyServer(function(input, output) {
           ##   Build dataframe for Employment Growth Composition
           if(input$analysisType == "Employment Growth Composition"){
                
-               new_labels <- c("Employment share", "Employment growth (CAGR)")
+               new_labels <- c("Employment share", "Employment growth", "Employment size")
                
           ##   Build dataframe for Employment Share & Specialization
           } else if(input$analysisType == "Employment Share & Specialization"){
                
-               new_labels <- c("Location quotient (Employment)", "Employment share")
+               new_labels <- c("Location quotient - Employment", "Employment share", "Employment size")
                
           ##   Build dataframe for Employment Growth & Specialization
           } else if(input$analysisType == "Employment Growth & Specialization"){
                
-               new_labels <- c("Location quotient (Employment)", "Employment growth (CAGR)")
+               new_labels <- c("Location quotient - Employment", "Employment growth", "Employment share")
                
           ##   Build dataframe for Revenue Growth & Specialization
           } else {
                
-              new_labels <- c("Location quotient (Revenue)", "Revenue growth (CAGR)")
+              new_labels <- c("Location quotient - Revenue", "Revenue growth", "Revenue share")
           }
          
           return(new_labels)
      })
      
+     ##   Render bubble chart
      output$bubble <- renderGvis({
+          
+          x <- axis_labels()[1]
+          y <- axis_labels()[2]
+          z <- axis_labels()[3]
+          
+          vis_table <- build_visdf()
+          names(vis_table) <- c("cluster", "region", x, y, z, "type")
           
           Sys.sleep(0.3)      ## For some reason, Sys.sleep() needs to be here
           
-          gvisBubbleChart(build_visdf(), idvar = "cluster", xvar = "xvar", yvar = "yvar",
-                          colorvar = "type", sizevar = "zvar", 
-                          options = list(chartArea = '{left:10, top:10, bottom:40, width:"80%", height:"50%"}',
-                                         width="530px", height="450px",
-                                         bubble="{textStyle:{color: 'none'}}"))
+          gvisBubbleChart(vis_table, idvar = "cluster", xvar = x, yvar = y,
+                          colorvar = "type", sizevar = z, 
+                          options = list(chartArea = '{left:40, top:10, bottom:30, width:"80%", height:"50%"}',
+                                         width= "600px", height= "450px",
+                                         bubble= "{textStyle:{color: 'none'}}"))
      })
 })
