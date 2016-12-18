@@ -13,9 +13,10 @@ body <- dashboardBody(
      ##   Top row
      fluidRow(
           
-          ##   Side panel
+          ##   Menu panel
           box(
                width = 3,
+               height = 600,
                helpText("Use menus below to select analysis type and filter data."),
                
                ##   Analysis type menu
@@ -38,12 +39,22 @@ body <- dashboardBody(
                br()
           ),
           
-          ##   Main panel
+          ##   Bubble chart panel
           box(
                width = 6,
+               height = 600,
                title = textOutput("analysis_title"),
                helpText("Hover over a bubble for tooltip."),
                htmlOutput("bubble")
+          ),
+          
+          ##   Leaflet map panel
+          box(
+              width = 3,
+              height = 600,
+              title = textOutput("region_title"),
+              helpText('Use +/- buttons or mouse wheel to zoom.'),
+              leafletOutput("twmap")
           )
      )
 )

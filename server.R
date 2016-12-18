@@ -3,12 +3,18 @@
 library(shinydashboard)
 library(ggvis)
 library(googleVis)
+library(leaflet)
 source('scripts/calculated_metrics.R')    ##   Import metric calculations
 
-##   Load beginning and end datasets
+##   Load beginning and end industry datasets
 begin_dataset <- read.csv('data/cluster2006.csv', stringsAsFactors=FALSE)
 end_dataset <- read.csv('data/cluster2011.csv', stringsAsFactors=FALSE)
+
+##   Load dataset with cluster type definitions
 cluster_types <- read.csv('data/clustertypes.csv', stringsAsFactors=FALSE)
+
+##   Load geoJSON data with region boundaries for Leaflet map
+topoData <- readLines("data/tw.json")
 
 shinyServer(function(input, output) {
      
@@ -124,4 +130,21 @@ shinyServer(function(input, output) {
                                          width= "600px", height= "450px",
                                          bubble= "{textStyle:{color: 'none'}}"))
      })
+     
+     ##   Render Leaflet map
+     output$twmap <- renderLeaflet({
+          leaflet() %>%
+               setView(lng = 121, lat = 23.6, zoom = 7) %>%
+                    addProviderTiles("Esri.OceanBasemap") %>%
+                    addTopoJSON(topoData, weight = 1, color = "#ffa500", fill = TRUE)
+     })
 })
+
+
+# map <- leaflet() %>%
+#      setView(lng = 121, lat = 23.6, zoom = 7) %>%
+#      addProviderTiles("Esri.OceanBasemap") %>%
+#      addTopoJSON(topoData, weight = 1, color = "#ffa500", fill = TRUE)
+# 
+# 
+# map
