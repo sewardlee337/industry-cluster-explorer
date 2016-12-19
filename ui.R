@@ -35,7 +35,7 @@ body <- dashboardBody(
                
                ##   Markdown
                br(),
-               uiOutput('mkdwn'),
+               uiOutput('htmlfile'),
                br(),
                br()
           ),

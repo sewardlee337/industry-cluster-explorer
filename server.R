@@ -1,7 +1,6 @@
 # server.R
 
 library(shinydashboard)
-library(knitr)
 library(googleVis)
 library(leaflet)
 source('scripts/calculated_metrics.R')    ##   Import metric calculations
@@ -131,18 +130,8 @@ shinyServer(function(input, output) {
                                          bubble= "{textStyle:{color: 'none'}}"))
      })
      
-     ##   Switch between markdown files to serve
-     # analysis_mkdwn <- reactive({
-     #      switch(input$analysisType,
-     #           "Employment Growth Composition" = "markdown/employ-growth-comp.Rmd",
-     #           "Employment Share & Specialization" = "markdown/employ-share-spec.Rmd",
-     #           "Employment Growth & Specialization" = "markdown/employ-growth-spec.Rmd",
-     #           "Revenue Growth & Specialization" = "markdown/rev-growth-spec.Rmd"
-     #      )
-     # })
-
-     
-     output$mkdwn <- renderUI({
+     ##   Serve HTML files
+     output$htmlfile <- renderUI({
           
           file <- switch(input$analysisType,
                     "Employment Growth Composition" = "html/employ-growth-comp.html",
@@ -154,15 +143,6 @@ shinyServer(function(input, output) {
 
           helpText(includeHTML(file))
      })
-     
-     
-     # output$region <- renderUI({
-     #      unique_regions <- choose_region()
-     #      selectInput("select_region", "Region of interest", choices = unique_regions, 
-     #                  unique_regions[1])
-     # })
-     # 
-     
      
      ##   Render Leaflet map
      output$twmap <- renderLeaflet({
