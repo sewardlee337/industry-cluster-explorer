@@ -1,3 +1,4 @@
 /data/*.csv
 .RData
 .Rhistory
+/data/*.shp

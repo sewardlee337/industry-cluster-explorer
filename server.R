@@ -1,7 +1,7 @@
 # server.R
 
 library(shinydashboard)
-library(ggvis)
+library(knitr)
 library(googleVis)
 library(leaflet)
 source('scripts/calculated_metrics.R')    ##   Import metric calculations
@@ -108,7 +108,7 @@ shinyServer(function(input, output) {
                
               new_labels <- c("Location quotient - Revenue", "Revenue growth", "Revenue share")
           }
-         
+          
           return(new_labels)
      })
      
@@ -131,6 +131,39 @@ shinyServer(function(input, output) {
                                          bubble= "{textStyle:{color: 'none'}}"))
      })
      
+     ##   Switch between markdown files to serve
+     # analysis_mkdwn <- reactive({
+     #      switch(input$analysisType,
+     #           "Employment Growth Composition" = "markdown/employ-growth-comp.Rmd",
+     #           "Employment Share & Specialization" = "markdown/employ-share-spec.Rmd",
+     #           "Employment Growth & Specialization" = "markdown/employ-growth-spec.Rmd",
+     #           "Revenue Growth & Specialization" = "markdown/rev-growth-spec.Rmd"
+     #      )
+     # })
+
+     
+     output$mkdwn <- renderUI({
+          
+          file <- switch(input$analysisType,
+                    "Employment Growth Composition" = "html/employ-growth-comp.html",
+                    "Employment Share & Specialization" = "html/employ-share-spec.html",
+                    "Employment Growth & Specialization" = "html/employ-growth-spec.html",
+                    "Revenue Growth & Specialization" = "html/rev-growth-spec.html",
+                    stop("Unknown option")
+          )
+
+          helpText(includeHTML(file))
+     })
+     
+     
+     # output$region <- renderUI({
+     #      unique_regions <- choose_region()
+     #      selectInput("select_region", "Region of interest", choices = unique_regions, 
+     #                  unique_regions[1])
+     # })
+     # 
+     
+     
      ##   Render Leaflet map
      output$twmap <- renderLeaflet({
           leaflet() %>%
@@ -139,12 +172,3 @@ shinyServer(function(input, output) {
                     addTopoJSON(topoData, weight = 1, color = "#ffa500", fill = TRUE)
      })
 })
-
-
-# map <- leaflet() %>%
-#      setView(lng = 121, lat = 23.6, zoom = 7) %>%
-#      addProviderTiles("Esri.OceanBasemap") %>%
-#      addTopoJSON(topoData, weight = 1, color = "#ffa500", fill = TRUE)
-# 
-# 
-# map

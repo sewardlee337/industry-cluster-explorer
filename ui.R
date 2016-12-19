@@ -3,6 +3,7 @@
 library(shinydashboard)
 library(ggvis)
 library(googleVis)
+library(leaflet)
 
 ##   Dashboard title setup
 header <- dashboardHeader(title = "Taiwan Industry Cluster Explorer", titleWidth = 350)
@@ -34,7 +35,7 @@ body <- dashboardBody(
                
                ##   Markdown
                br(),
-               helpText(includeMarkdown("markdown/employ-share-spec.Rmd")),
+               uiOutput('mkdwn'),
                br(),
                br()
           ),

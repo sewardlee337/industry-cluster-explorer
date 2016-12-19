@@ -1,7 +1,0 @@
-**Employment Share and Specialization** provides insight into how unique a cluster is within a particular region, and how important it is to the regional economy.  
-
-**X-axis:** Location quotient (Employment)
-
-**Y-axis:** Employment share
-
-**Circle area:** Employment size (No. of employees)
