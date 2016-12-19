@@ -111,12 +111,16 @@ shinyServer(function(input, output) {
           return(new_labels)
      })
      
+     
      ##   Render bubble chart
      output$bubble <- renderGvis({
           
           x <- axis_labels()[1]
           y <- axis_labels()[2]
           z <- axis_labels()[3]
+          
+          xaxislabel <- paste0("[{title:'", x,"'}]" )
+          yaxislabel <- paste0("[{title:'", y,"'}]" )
           
           vis_table <- build_visdf()
           names(vis_table) <- c("cluster", "region", x, y, z, "type")
@@ -125,8 +129,9 @@ shinyServer(function(input, output) {
           
           gvisBubbleChart(vis_table, idvar = "cluster", xvar = x, yvar = y,
                           colorvar = "type", sizevar = z, 
-                          options = list(chartArea = '{left:40, top:10, bottom:30, width:"80%", height:"50%"}',
+                          options = list(chartArea = '{left:60, top:10, bottom:50, right: 95,width:"80%", height:"50%"}',
                                          width= "600px", height= "450px",
+                                         hAxes=xaxislabel, vAxes=yaxislabel,
                                          bubble= "{textStyle:{color: 'none'}}"))
      })
      
