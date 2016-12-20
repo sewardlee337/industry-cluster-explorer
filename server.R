@@ -12,8 +12,6 @@ end_dataset <- read.csv('data/cluster2011.csv', stringsAsFactors=FALSE)
 ##   Load dataset with cluster type definitions
 cluster_types <- read.csv('data/clustertypes.csv', stringsAsFactors=FALSE)
 
-##   Load geoJSON data with region boundaries for Leaflet map
-topoData <- readLines("data/tw.json")
 
 shinyServer(function(input, output) {
      
@@ -111,7 +109,6 @@ shinyServer(function(input, output) {
           return(new_labels)
      })
      
-     
      ##   Render bubble chart
      output$bubble <- renderGvis({
           
@@ -149,11 +146,51 @@ shinyServer(function(input, output) {
           helpText(includeHTML(file))
      })
      
+     ##   Load TopoJSON data with region boundaries for Leaflet map
+     loadjson <- reactive({
+          
+          ##   Use switch statement to choose which TopoJSON file to load
+          
+          region_name <- switch(input$select_region, 
+                      "Changhua County" = "changhua",
+                      "Chiayi City" = "chiayicity",
+                      "Chiayi County" = "chiayicounty",
+                      "Hsinchu City" = "hsinchucity",
+                      "Hsinchu County" = "hsinchucounty",
+                      "Hualien County" = "hualien",
+                      "Kaohsiung City" = "kaohsiung",
+                      "Keelung City" = "keelung",
+                      "Kinmen County" = "kinmen",
+                      "Lienchiang County" = "lienchiang",
+                      "Miaoli County"= "miaoli",
+                      "Nantou County" = "nantou",
+                      "New Taipei City" = "newtaipei",
+                      "Penghu County" = "penghu",
+                      "Pingtung County" = "pingtung",
+                      "Taichung City" = "taichung",
+                      "Tainan City" = "tainan",
+                      "Taipei City" = "taipei",
+                      "Taitung County" = "taitung",
+                      "Taoyuan City" = "taoyuan",
+                      "Total" = "total",
+                      "Yilan County" = "yilan",
+                      "Yunlin County" = "yunlin")
+          
+          json_path <- paste0("data/topojson/", region_name, ".json") %>%
+               readLines()
+
+          
+          })
+     
+     
      ##   Render Leaflet map
      output$twmap <- renderLeaflet({
+          
+          topoData <- loadjson()
+          
           leaflet() %>%
                setView(lng = 121, lat = 23.6, zoom = 7) %>%
-                    addProviderTiles("Esri.OceanBasemap") %>%
-                    addTopoJSON(topoData, weight = 1, color = "#ffa500", fill = TRUE)
+                    addProviderTiles("Hydda.Base") %>%
+                    addTopoJSON(topoData, weight = 1, color = "#FF6347", fill = TRUE)
      })
 })

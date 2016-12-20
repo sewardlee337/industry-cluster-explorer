@@ -1,7 +1,6 @@
 # ui.R
 
 library(shinydashboard)
-library(ggvis)
 library(googleVis)
 library(leaflet)
 

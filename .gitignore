@@ -2,3 +2,4 @@
 .RData
 .Rhistory
 /data/*.shp
+/data/topojson/*.json
