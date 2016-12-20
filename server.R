@@ -178,10 +178,7 @@ shinyServer(function(input, output) {
           
           json_path <- paste0("data/topojson/", region_name, ".json") %>%
                readLines()
-
-          
           })
-     
      
      ##   Render Leaflet map
      output$twmap <- renderLeaflet({
