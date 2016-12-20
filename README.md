@@ -15,6 +15,9 @@ For more information regarding the theory of industry clusters, see:
 
 This web app is a project of the [Taiwan Institute for Strategy and Competitiveness](http://tisc.nccu.edu.tw/) at [National Chengchi University](http://www.nccu.edu.tw/?locale=en) in Taipei.
 
+
+![Alt Text](https://github.com/sewardlee337/bizcluster-dashboard/blob/master/example.gif)
+
 ## Setup
 
 ### Software Dependencies
