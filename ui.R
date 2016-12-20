@@ -53,7 +53,7 @@ body <- dashboardBody(
               width = 3,
               height = 600,
               title = textOutput("region_title"),
-              helpText('Use +/- buttons or mouse wheel to zoom.'),
+              helpText('Use +/- buttons or mouse wheel to zoom. Click to drag.'),
               leafletOutput("twmap")
           )
      ),
