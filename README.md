@@ -1,4 +1,4 @@
-# Shiny Dashboard for Industry Cluster Analysis
+# Industry Cluster Explorer
 
 *This application is currently under active development. Changes and modifications will be added over time.*
 
