@@ -1,6 +1,8 @@
-# Shiny Dashboard for Industry Cluster Analysis
+# Industry Cluster Explorer
 
 *This application is currently under active development. Changes and modifications will be added over time.*
+
+*For more detailed documentation on the project, please consult the [project Wiki page](https://github.com/sewardlee337/bizcluster-dashboard/wiki).*
 
 ## About
 
@@ -37,20 +39,13 @@ Make sure that the file structure on your machine matches the following:
 ├── bizcluster-dashboard
 |   ├── scripts
 |   | ├── calculated_metrics.R
-|   ├── data
+|   ├── data 
+|   | ├── topojson 
 |   ├── server.R
 |   ├── ui.R
 └──
 ```
-**Note that the folder `data` does not exist on the Github repository.** Prior to running the application, create the folder `data` and populate it with input data to be processed and visualized by the dashboard. 
-
-###	Data Preparation
-
-#### Industry Cluster Data
-
-In order for datasets to be visualized by the dashboard to be processed correctly, it must be structured in [tidy format](http://vita.had.co.nz/papers/tidy-data.pdf) and stored in CSV file format.
-
-#### Geospatial Data
+**Note that the folder `data` does not exist on the Github repository.** Prior to running the application, create the folder `data` and populate it with input data to be processed and visualized by the dashboard. Folder `data` should contain CSV files with industry cluster data, as well as one CSV file with clusters labeled as "traded" or "local". Folder `data/topojson` should contain a separate TopoJSON file for each geographic region that you want to visualize.
 
 ## Feedback and Collaboration
 
