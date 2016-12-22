@@ -15,6 +15,9 @@ For more information regarding the theory of industry clusters, see:
 
 This web app is a project of the [Taiwan Institute for Strategy and Competitiveness](http://tisc.nccu.edu.tw/) at [National Chengchi University](http://www.nccu.edu.tw/?locale=en) in Taipei.
 
+
+![Alt Text](https://github.com/sewardlee337/bizcluster-dashboard/blob/master/example.gif)
+
 ## Setup
 
 ### Software Dependencies
@@ -45,7 +48,7 @@ Make sure that the file structure on your machine matches the following:
 |   ├── ui.R
 └──
 ```
-**Note that the folder `data` does not exist on the Github repository.** Prior to running the application, create the folder `data` and populate it with input data to be processed and visualized by the dashboard. Folder `data` should contain CSV files with industry cluster data, as well as one CSV file with clusters labeled as "traded" or "local". Folder `data/topojson` should contain a separate TopoJSON file for each geographic region that you want to visualize.
+**Note that the folder `data` does not exist on the GitHub repository.** Prior to running the application, create the folder `data` and populate it with input data to be processed and visualized by the dashboard. Folder `data` should contain CSV files with industry cluster data, as well as one CSV file with clusters labeled as "traded" or "local". Folder `data/topojson` should contain a separate TopoJSON file for each geographic region that you want to visualize.
 
 ## Feedback and Collaboration
 
