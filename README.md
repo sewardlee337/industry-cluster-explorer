@@ -42,6 +42,11 @@ Make sure that the file structure on your machine matches the following:
 ├── bizcluster-dashboard
 |   ├── scripts
 |   | ├── calculated_metrics.R
+|   ├── html
+|   | ├── employ-growth-comp.html
+|   | ├── employ-growth-spec.html
+|   | ├── employ-share-spec.html
+|   | ├── rev-growth-spec.html
 |   ├── data 
 |   | ├── topojson 
 |   ├── server.R
