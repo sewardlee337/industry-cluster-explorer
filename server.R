@@ -41,26 +41,26 @@ shinyServer(function(input, output) {
           
           ##   Build dataframe for Employment Growth Composition
           if(input$analysisType == "Employment Growth Composition"){
-               xvar <- RegionShare(end_dataset, "employee_count")
-               yvar <- CAGR(begin_dataset, end_dataset, "employee_count", 5)
+               yvar <- RegionShare(end_dataset, "employee_count")
+               xvar <- CAGR(begin_dataset, end_dataset, "employee_count", 5)
                zvar <- end_dataset[,c('cluster', 'region', "employee_count")]
           
           ##   Build dataframe for Employment Share & Specialization
           } else if(input$analysisType == "Employment Share & Specialization"){
-               xvar <- LQ(end_dataset, "employee_count")
-               yvar <- RegionShare(end_dataset, "employee_count")
+               yvar <- LQ(end_dataset, "employee_count")
+               xvar <- RegionShare(end_dataset, "employee_count")
                zvar <- end_dataset[,c('cluster', 'region', "employee_count")]
                
           ##   Build dataframe for Employment Growth & Specialization
           } else if(input$analysisType == "Employment Growth & Specialization"){
-               xvar <- LQ(end_dataset, "employee_count")
-               yvar <- CAGR(begin_dataset, end_dataset, "employee_count", 5)
+               yvar <- LQ(end_dataset, "employee_count")
+               xvar <- CAGR(begin_dataset, end_dataset, "employee_count", 5)
                zvar <- RegionShare(end_dataset, "employee_count")
                
           ##   Build dataframe for Revenue Growth & Specialization
           } else {
-               xvar <- LQ(end_dataset, "revenue")
-               yvar <- CAGR(begin_dataset, end_dataset, "revenue", 5)
+               yvar <- LQ(end_dataset, "revenue")
+               xvar <- CAGR(begin_dataset, end_dataset, "revenue", 5)
                zvar <- RegionShare(end_dataset, "revenue")
           }
           
@@ -88,22 +88,22 @@ shinyServer(function(input, output) {
           ##   Build dataframe for Employment Growth Composition
           if(input$analysisType == "Employment Growth Composition"){
                
-               new_labels <- c("Employment share", "Employment growth", "Employment size")
+               new_labels <- c("Employment growth", "Employment share", "Employment size")
                
           ##   Build dataframe for Employment Share & Specialization
           } else if(input$analysisType == "Employment Share & Specialization"){
                
-               new_labels <- c("Location quotient - Employment", "Employment share", "Employment size")
+               new_labels <- c("Employment share", "Location quotient - Employment", "Employment size")
                
           ##   Build dataframe for Employment Growth & Specialization
           } else if(input$analysisType == "Employment Growth & Specialization"){
                
-               new_labels <- c("Location quotient - Employment", "Employment growth", "Employment share")
+               new_labels <- c("Employment growth", "Location quotient - Employment", "Employment share")
                
           ##   Build dataframe for Revenue Growth & Specialization
           } else {
                
-              new_labels <- c("Location quotient - Revenue", "Revenue growth", "Revenue share")
+              new_labels <- c("Revenue growth", "Location quotient - Revenue", "Revenue share")
           }
           
           return(new_labels)

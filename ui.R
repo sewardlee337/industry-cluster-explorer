@@ -66,13 +66,13 @@ body <- dashboardBody(
                
                p(strong("Taiwan Industry Cluster Explorer"), "is a project of the",  
                     tags$a(href="http://tisc.nccu.edu.tw/", "Taiwan Institute for Strategy and Competitiveness"), 
-                    "at", tags$a(href="http://www.nccu.edu.tw/?locale=en", "National Chengchi University"), 
-                    "in Taipei. It is based on research conducted by Dr. Janet Tan, with the 
-                    assistance of the Institute of Strategy and Competitiveness at Harvard 
-                    Business School. This project utilizes census data from 2006 and 2011 acquired 
+                    "(TISC) at", tags$a(href="http://www.nccu.edu.tw/?locale=en", "National Chengchi University"), 
+                    "in Taipei.  It is based on research conducted by Dr. Janet Tan, with coaching and
+                    assistance provided by Prof. Michael Porter's team at the Institute of Strategy and Competitiveness 
+                    at Harvard Business School.  This project utilizes census data from 2006 and 2011 acquired 
                     from the Directorate General of Budget, Accounting, and Statistics."),
                
-               p("Software code for Taiwan Industry Cluster Explorer is licensed under the MIT License. The
+               p("Software code for Taiwan Industry Cluster Explorer is licensed under the MIT License.  The
                     underlying data is subject to certain government limitations -- please consult TISC 
                     prior to reproduction."),
                
