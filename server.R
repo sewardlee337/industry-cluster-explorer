@@ -172,7 +172,7 @@ shinyServer(function(input, output) {
                       "Taipei City" = "taipei",
                       "Taitung County" = "taitung",
                       "Taoyuan City" = "taoyuan",
-                      "Total" = "total",
+                      "Taiwan Total" = "total",
                       "Yilan County" = "yilan",
                       "Yunlin County" = "yunlin")
           
