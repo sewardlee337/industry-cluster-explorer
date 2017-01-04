@@ -43,13 +43,15 @@ shinyServer(function(input, output) {
           if(input$analysisType == "Employment Growth Composition"){
                yvar <- RegionShare(end_dataset, "employee_count")
                xvar <- CAGR(begin_dataset, end_dataset, "employee_count", 5)
-               zvar <- end_dataset[,c('cluster', 'region', "employee_count")]
+               zvar <- end_dataset[,c('cluster', 'region', "employee_count")] %>%    ## Round employee count to 
+                    mutate(employee_count = round(employee_count))                   ## nearest integer.
           
           ##   Build dataframe for Employment Share & Specialization
           } else if(input$analysisType == "Employment Share & Specialization"){
                yvar <- LQ(end_dataset, "employee_count")
                xvar <- RegionShare(end_dataset, "employee_count")
-               zvar <- end_dataset[,c('cluster', 'region', "employee_count")]
+               zvar <- end_dataset[,c('cluster', 'region', "employee_count")] %>%    ## Round employee count to 
+                    mutate(employee_count = round(employee_count))                   ## nearest integer.
                
           ##   Build dataframe for Employment Growth & Specialization
           } else if(input$analysisType == "Employment Growth & Specialization"){
