@@ -129,6 +129,7 @@ shinyServer(function(input, output) {
           gvisBubbleChart(vis_table, idvar = "cluster", xvar = x, yvar = y,
                           colorvar = "type", sizevar = z, 
                           options = list(chartArea = '{left:60, top:10, bottom:50, right: 95,width:"80%", height:"50%"}',
+                                         explorer="{actions: ['dragToPan', 'rightClickToReset'], maxZoomIn:0.05}",
                                          width= "600px", height= "450px",
                                          hAxes=xaxislabel, vAxes=yaxislabel,
                                          bubble= "{textStyle:{color: 'none'}}"))

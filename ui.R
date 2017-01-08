@@ -44,7 +44,8 @@ body <- dashboardBody(
                width = 6,
                height = 600,
                title = textOutput("analysis_title"),
-               helpText("Hover over a bubble for tooltip."),
+               helpText("Hover over a bubble for tooltip.  Left-click and drag to pan around 
+                        the chart horizontally and vertically. Right-click to reset to default view."),
                htmlOutput("bubble")
           ),
           
@@ -53,7 +54,7 @@ body <- dashboardBody(
               width = 3,
               height = 600,
               title = textOutput("region_title"),
-              helpText('Use +/- buttons or mouse wheel to zoom. Click to drag.'),
+              helpText('Use +/- buttons or mouse wheel to zoom. Left-click to drag.'),
               leafletOutput("twmap")
           )
      ),
