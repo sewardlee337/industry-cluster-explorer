@@ -176,7 +176,14 @@ shinyServer(function(input, output) {
                       "Taoyuan City" = "taoyuan",
                       "Taiwan Total" = "total",
                       "Yilan County" = "yilan",
-                      "Yunlin County" = "yunlin")
+                      "Yunlin County" = "yunlin",
+                      "North Region" = "north",
+                      "Northwest Region" = "northwest",
+                      "Middle Region" = "middle",
+                      "Southwest Region" = "southwest",
+                      "South Region" = "south",
+                      "East Region" = "east",
+                      "Outer Islands" = "outerislands")
           
           json_path <- paste0("data/topojson/", region_name, ".json") %>%
                readLines()
