@@ -32,7 +32,7 @@ body <- dashboardBody(
                ##   Region dropdown menu
                uiOutput("region"),
                
-               ##   Markdown
+               ##   HTML file for analysis description
                br(),
                uiOutput('htmlfile'),
                br(),

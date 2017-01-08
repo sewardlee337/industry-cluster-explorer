@@ -146,7 +146,7 @@ shinyServer(function(input, output) {
                     stop("Unknown option")
           )
 
-          helpText(includeHTML(file))
+          includeHTML(file)
      })
      
      ##   Load TopoJSON data with region boundaries for Leaflet map
