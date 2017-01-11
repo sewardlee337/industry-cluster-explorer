@@ -72,7 +72,7 @@ LQ <- function(data, metric){
      combined_table <- inner_join(combined_table, cluster_table, by = "cluster")
      
      ##   Find grand total for given metric
-     initial_table <- initial_table[which(initial_table$region != "Total"),]      ##   Remove rows with "Total" to prevent double-counting.
+     initial_table <- initial_table[which(initial_table$region == "Taiwan Total"),]      ##  Only use "Taiwan Total" to prevent double-counting.
 
      grand_total <- sum(initial_table[,metric])
      
