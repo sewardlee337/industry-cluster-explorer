@@ -74,7 +74,7 @@ body <- dashboardBody(
                     "at Harvard Business School.  This project utilizes census data from 2006 and 2011 acquired 
                     from the Directorate General of Budget, Accounting, and Statistics."),
                
-               p("Software code for Taiwan Industry Cluster Explorer is licensed under the MIT License.  The
+               p("The
                     underlying data is subject to certain government limitations -- please consult TISC 
                     prior to reproduction."),
                

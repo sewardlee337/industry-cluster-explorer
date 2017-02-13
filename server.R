@@ -132,6 +132,7 @@ shinyServer(function(input, output) {
                                          explorer="{actions: ['dragToPan', 'rightClickToReset'], maxZoomIn:0.05}",
                                          width= "600px", height= "450px",
                                          hAxes=xaxislabel, vAxes=yaxislabel,
+                                         colors="['#0353ff', '#ffab03']",
                                          bubble= "{textStyle:{color: 'none'}}"))
      })
      
