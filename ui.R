@@ -5,7 +5,7 @@ library(googleVis)
 library(leaflet)
 
 ##   Dashboard title setup
-header <- dashboardHeader(title = "Taiwan Industry Cluster Explorer", titleWidth = 350)
+header <- dashboardHeader(title = "Taiwan Industry Cluster Explorer", titleWidth = 400)
 
 ##   Dashboard body setup
 body <- dashboardBody(
@@ -54,7 +54,7 @@ body <- dashboardBody(
               width = 3,
               height = 600,
               title = textOutput("region_title"),
-              helpText('Use +/- buttons or mouse wheel to zoom. Left-click to drag.'),
+              helpText('Use +/- buttons or mouse wheel to zoom. Left-click and drag to pan horizontally and vertically.'),
               leafletOutput("twmap")
           )
      ),

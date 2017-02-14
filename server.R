@@ -77,6 +77,14 @@ shinyServer(function(input, output) {
                
           names(new_table) <- c("cluster", "region", "xvar", "yvar", "zvar")
           
+          
+          if(input$analysisType == "Economic Dynamism"){ 
+            
+            new_table <- mutate(new_table, employ_growth = ifelse(zvar > 0, "growth", "decay" ))
+            
+            }
+          
+          
           ##   Filter by region
           new_table <- new_table[which(new_table$region == selected_region() ),] %>%
                inner_join(cluster_types, by = 'cluster')
@@ -137,13 +145,15 @@ shinyServer(function(input, output) {
           
           Sys.sleep(0.3)      ## For some reason, Sys.sleep() needs to be here
           
+          colorpalette <- ifelse(input$analysisType == "Economic Dynamism", "['#ff2d03','#0353ff']", "['#0353ff', '#ffab03']")
+          
           gvisBubbleChart(vis_table, idvar = "cluster", xvar = x, yvar = y,
                           colorvar = "type", sizevar = z, 
                           options = list(chartArea = '{left:60, top:10, bottom:50, right: 95,width:"80%", height:"50%"}',
                                          explorer="{actions: ['dragToPan', 'rightClickToReset'], maxZoomIn:0.05}",
                                          width= "600px", height= "450px",
                                          hAxes=xaxislabel, vAxes=yaxislabel,
-                                         colors="['#0353ff', '#ffab03']",
+                                         colors= colorpalette,
                                          bubble= "{textStyle:{color: 'none'}}"))
      })
      
