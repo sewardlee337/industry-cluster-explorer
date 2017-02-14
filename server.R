@@ -59,6 +59,12 @@ shinyServer(function(input, output) {
                xvar <- CAGR(begin_dataset, end_dataset, "employee_count", 5)
                zvar <- RegionShare(end_dataset, "employee_count")
                
+          ##   Build dataframe for Economic Dynamism
+          } else if(input$analysisType == "Economic Dynamism"){
+            yvar <- CAGR(begin_dataset, end_dataset, "wages", 5)
+            xvar <- CAGR(begin_dataset, end_dataset, "revenue", 5)
+            zvar <- CAGR(begin_dataset, end_dataset, "employee_count", 5)
+               
           ##   Build dataframe for Revenue Growth & Specialization
           } else {
                yvar <- LQ(end_dataset, "revenue")
@@ -87,22 +93,27 @@ shinyServer(function(input, output) {
      ##   Axis labels
      axis_labels <- reactive({
           
-          ##   Build dataframe for Employment Growth Composition
+          ##   Labels for Employment Growth Composition
           if(input$analysisType == "Employment Growth Composition"){
                
                new_labels <- c("Employment growth", "Employment share", "Employment size")
                
-          ##   Build dataframe for Employment Share & Specialization
+          ##   Labels for Employment Share & Specialization
           } else if(input$analysisType == "Employment Share & Specialization"){
                
                new_labels <- c("Employment share", "Location quotient - Employment", "Employment size")
                
-          ##   Build dataframe for Employment Growth & Specialization
+          ##   Labels for Employment Growth & Specialization
           } else if(input$analysisType == "Employment Growth & Specialization"){
                
                new_labels <- c("Employment growth", "Location quotient - Employment", "Employment share")
                
-          ##   Build dataframe for Revenue Growth & Specialization
+          ##   Labels for Economic Dynamism
+          } else if(input$analysisType == "Economic Dynamism"){
+            
+            new_labels <- c("Wage growth", "Revenue growth", "Employment growth")
+               
+          ##   Labels for Revenue Growth & Specialization
           } else {
                
               new_labels <- c("Revenue growth", "Location quotient - Revenue", "Revenue share")
@@ -144,6 +155,7 @@ shinyServer(function(input, output) {
                     "Employment Share & Specialization" = "html/employ-share-spec.html",
                     "Employment Growth & Specialization" = "html/employ-growth-spec.html",
                     "Revenue Growth & Specialization" = "html/rev-growth-spec.html",
+                    "Economic Dynamism" = "html/econ-dynamism.html",
                     stop("Unknown option")
           )
 

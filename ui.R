@@ -21,7 +21,7 @@ body <- dashboardBody(
                
                ##   Analysis type menu
                selectInput('analysisType', "Analysis",
-                           c("Employment Growth Composition", "Employment Share & Specialization",
+                           c("Economic Dynamism", "Employment Growth Composition", "Employment Share & Specialization",
                              "Employment Growth & Specialization", "Revenue Growth & Specialization")),
                
                ##   Cluster type menu
@@ -74,8 +74,7 @@ body <- dashboardBody(
                     "at Harvard Business School.  This project utilizes census data from 2006 and 2011 acquired 
                     from the Directorate General of Budget, Accounting, and Statistics."),
                
-               p("The
-                    underlying data is subject to certain government limitations -- please consult TISC 
+               p("The underlying data is subject to certain government limitations -- please consult TISC 
                     prior to reproduction."),
                
                p("Have questions? Want to collaborate? Please contact Dr. Tan (janettan.liu@gmail.com) 
