@@ -80,7 +80,7 @@ shinyServer(function(input, output) {
           
           if(input$analysisType == "Economic Dynamism"){ 
             
-            new_table <- mutate(new_table, employ_growth = ifelse(zvar > 0, "growth", "decay" ))
+            new_table <- mutate(new_table, employ_growth = ifelse(zvar > 0, "employment growth", "employment decay" ))
             
             }
           
@@ -154,6 +154,7 @@ shinyServer(function(input, output) {
                                          width= "600px", height= "450px",
                                          hAxes=xaxislabel, vAxes=yaxislabel,
                                          colors= colorpalette,
+                                         legend = "bottom",
                                          bubble= "{textStyle:{color: 'none'}}"))
      })
      
