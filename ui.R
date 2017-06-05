@@ -78,7 +78,9 @@ body <- dashboardBody(
                     prior to reproduction."),
                
                p("Have questions? Want to collaborate? Please contact Dr. Tan (janettan.liu@gmail.com) 
-                    or Seward Lee (sewardlee337@gmail.com)."),
+                    or Seward Lee (sewardlee337@gmail.com).  Click ",
+                    tags$a(href= "https://github.com/sewardlee337/industry-cluster-explorer", "here"), " to see the GitHub
+                    repository for this project."),
                
                br()
           )
