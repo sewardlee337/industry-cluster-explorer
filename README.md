@@ -1,8 +1,8 @@
 # Industry Cluster Explorer
 
-*This application is currently under active development. Changes and modifications will be added over time.*
+##### Click [here](http://140.119.55.171:3838/andy/ClusterMapping/) for a demo of the application.
 
-*For more detailed documentation on the project, please consult the [project Wiki page](https://github.com/sewardlee337/bizcluster-dashboard/wiki).*
+*This application is currently under development. Changes and modifications will be added over time. For more detailed documentation on the project, please consult the [project Wiki page](https://github.com/sewardlee337/bizcluster-dashboard/wiki).*
 
 ## About
 
