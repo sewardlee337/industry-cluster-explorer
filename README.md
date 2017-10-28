@@ -39,7 +39,7 @@ install.packages('shinydashboard')
 Make sure that the file structure on your machine matches the following:
 
 ```
-├── bizcluster-dashboard
+├── industry-cluster-explorer
 |   ├── scripts
 |   | ├── calculated_metrics.R
 |   ├── html
